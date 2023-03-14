@@ -108,5 +108,5 @@ search:
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: git@github.com:843378894/LiuZeng-Blog.github.io.git
+  repo: git@github.com:843378894/843378894.github.io.git
   branch: main
