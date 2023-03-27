@@ -1,12 +1,12 @@
 ---
 title: vue3源码手写-reactive实现
-date: 2023-03-16 22:00:00
+date: 2023-03-22 22:00:00
 categories: 源码
 tags: VUE3
 
 ---
 ### vue3源码手写-reactive实现
-###### 1. packages\reactivity\src\index.ts 安装源码该位置做入口，只做导入导出
+###### 1. packages\reactivity\src\index.ts 按照源码该位置做入口，只做导入导出
 > 第一步在 packages\reactivity\src\index.ts 下导入导出我们在reactive.ts的方法
 ```javascript
 export {
@@ -23,11 +23,8 @@ export {
 
 // shared 中写的是公共代码 需要先npm run build 打包才能引入，build报错的话先执行yarn install 再build 
 import { isObject} from'@vue/shared'
+import {reactiveHandlers,shallowReactiveHandlers,readonlyHandlers,shallowReadonlyHandlers} from './baseHandlers'
 
-const reactiveHandlers ={}
-const shallowReactiveHandlers ={}
-const readonlyHandlers ={}
-const shallowReadonlyHandlers ={}
 
 /**
  * vue3核心方法实现
@@ -101,7 +98,7 @@ function   createReactObj(target,isReadonly,baseHandlers){
 ###### 3. baseHandlers 代理捕获器对象书写
 > 第三步 先对应目录下创建文件 （packages\reactivity\src\baseHandlers.ts）。实现看代码
 ```javascript
-    import { isObject } from "@vue/shared"
+import { isObject } from "@vue/shared"
 import { reactive, readonly } from "./reactive"
 
 /**
@@ -115,6 +112,16 @@ const shallowGet = /*#__PURE__*/ createGetter(false, true)
 const readonlyGet = /*#__PURE__*/ createGetter(true)
 const shallowReadonlyGet = /*#__PURE__*/ createGetter(true, true)
 
+const set = /*#__PURE__*/ createSetter()
+const shallowSet =/*#__PURE__*/ createSetter(true)
+
+//  代理中的set函数
+function createSetter(shallow=false){
+    return function set(target,key,value,receiver){
+        const result = Reflect.set(target,key,value,receiver)
+        return result
+    }
+}
 
 function createGetter(isReadonly=false,shallow=false){
     return function get(target,key,receiver){
@@ -142,11 +149,38 @@ function createGetter(isReadonly=false,shallow=false){
 }
 
 export const reactiveHandlers ={
-    get
+    get,
+    set
+    
 }
-export const shallowReactiveHandlers ={}
-export const readonlyHandlers ={}
-export const shallowReadonlyHandlers ={}
+export const shallowReactiveHandlers ={
+    get:shallowGet,
+    set:shallowSet
+    
+}
+export const readonlyHandlers ={
+    get:readonlyGet,
+    set(target, key) {
+        // readonly 的响应式对象不可以修改值
+        console.warn(
+          `Set operation on key "${String(key)}" failed: target is readonly.`,
+          target
+        );
+        return true;
+      },
+
+}
+export const shallowReadonlyHandlers ={
+    get:shallowReadonlyGet,
+    set(target, key) {
+        // readonly 的响应式对象不可以修改值
+        console.warn(
+          `Set operation on key "${String(key)}" failed: target is readonly.`,
+          target
+        );
+        return true;
+      },
+}
 ```
 
 
