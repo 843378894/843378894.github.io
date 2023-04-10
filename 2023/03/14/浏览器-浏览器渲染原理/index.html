@@ -505,8 +505,10 @@
 </li>
 </ol>
 <h3 id="渲染过程"><a href="#渲染过程" class="headerlink" title="渲染过程"></a>渲染过程</h3><ol>
-<li><p>渲染流程<br><img src="https://img-blog.csdnimg.cn/bf47c001ed9244e8802ce945760ce85b.png"><br>渲染流程的主要四个步骤<br>1.1 解析 HTML 生成 DOM 树<br>1.2 解析 css 生成 CSSOM 树<br>1.3 根据 DOM 和 CSSOM 树构建 Render 树<br>1.4 布局 render 树<br>1.5 绘制 render 树</p>
-</li>
+<li>渲染流程</li>
+</ol>
+<p><img src="/images/render.png"><br>渲染流程的主要四个步骤<br>1.1 解析 HTML 生成 DOM 树<br>1.2 解析 css 生成 CSSOM 树<br>1.3 根据 DOM 和 CSSOM 树构建 Render 树<br>1.4 布局 render 树<br>1.5 绘制 render 树</p>
+<ol>
 <li><p>渲染细节<br>2.1 生成 DOM 树<br>DOM 树的构建过程是一个深度遍历过程，当前节点的所有子节点都构建好后才会去构建当前节点的下一个兄弟节点。DOM 树的节点就时 document 对象<br>DOM 树的生成过程中可能被 css 和 js 的加载执行阻塞<br>2.2 生成 CSSOM 树<br>DOM 树生成的同时会生成样式结构体 CSSOM 树，<br>2.3 生成 Render 树<br>根据 CSSOM 树和 DOM 树构造渲染树，渲染树包含颜色尺寸，render 树是用于显示，，那些不可见元素不在 render 树中出现<br>2.4 布局<br>根据 render 树的样式规则，浏览器会根据这些信息进行布局，从上到下从根节点开始画<br>2.5 绘制<br>渲染引擎会遍历 render 树，并且调用 render 的 paint（）方法进行绘制<br>这样一个完整的页面就渲染出来了</p>
 </li>
 <li><p>重排(回流)与重绘<br>3.1 在样式的尺寸发生改变的时候就会引起浏览器的重排（回流）机制进行重新计算渲染<br>3.2 在颜色等不涉及尺寸的改变时会引起浏览器的重绘机制重新绘制页面</p>
