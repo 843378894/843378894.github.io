@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="浏览器渲染原理, 博客，前端">
+    <meta name="keywords" content="vue3源码手写-对象数组跟新, 博客，前端">
     <meta name="description" content="平凡的超越之道，持之以恒">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>浏览器渲染原理 | 刘曾个人博客</title>
+    <title>vue3源码手写-对象数组跟新 | 刘曾个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">浏览器渲染原理</h1>
+                    <h1 class="description center-align post-title">vue3源码手写-对象数组跟新</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">
-                                <span class="chip bg-color">浏览器</span>
+                            <a href="/tags/VUE3/">
+                                <span class="chip bg-color">VUE3</span>
                             </a>
                         
                     </div>
@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/" class="post-category">
-                                渲染原理
+                            <a href="/categories/%E6%BA%90%E7%A0%81/" class="post-category">
+                                源码
                             </a>
                         
                     </div>
@@ -477,43 +477,19 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="浏览器渲染页面的原理及流程"><a href="#浏览器渲染页面的原理及流程" class="headerlink" title="浏览器渲染页面的原理及流程"></a>浏览器渲染页面的原理及流程</h3><ol>
-<li>浏览器将域名通过网络通信从服务器拿到 html 文件</li>
-<li>根据 html 文件构建 DOM 树和 CSSOM 树，构建 DOM 树期间遇到 js，阻塞 DOM 树和 CSSOM 树的构建，优先加载 js 文件，加载完毕，再继续构建 DOM 树和 CSSOM 树</li>
-<li>构建渲染树（Render Tree）</li>
-<li>页面的重绘与重排（也叫回流）。页面渲染完成后，如果 js 操作了 DOM 节点，根据 JS 对 DOM 操作动作的大小激进型重绘或者重排</li>
-</ol>
-<h4 id="url-输入到-HTML-渲染完成都做了什么"><a href="#url-输入到-HTML-渲染完成都做了什么" class="headerlink" title="url 输入到 HTML 渲染完成都做了什么"></a>url 输入到 HTML 渲染完成都做了什么</h4><ol>
-<li><p>解析 URL</p>
-<p>1.1 首先会对 url 进行解析，获取所需要的传输协议和请求资源地址<br>1.2 如果输入的 url 中的协议活主机名不合法，将会把地址栏中输入的内容传递给搜索引擎<br>1.3 如果协议和主机名没有问题，浏览器会检查 url 中是否有非法字符，会选择是否对其进行转义</p>
-</li>
-<li><p>缓存加载<br>2.1 浏览器会从缓存中获取请求的资源<br>2.2 如果请求的资源存在缓存中没有失效，就直接返回缓存数据，否则向服务器发起新的请求。</p>
-</li>
-<li><p>DNS 解析<br>3.1 获取 URL 中域名 ip 地址<br>3.2 先判断本地是否有该域名的 ip 地址的缓存<br>3.2.1 如果有就使用缓存的数据；<br>3.2.2 如果没有则向本地 DNS 服务器发起请求；<br>3.3 本地 DNS 服务器获取 ip 地址优先使用本地缓存，如果没有缓存数据就向服务器发起请求</p>
-</li>
-<li><p>获取 MAC 地址，数据传输需要知道目的主机 MAC 地址</p>
-</li>
-<li><p>TCP 链接（3 次握手）<br>5.1 确认客户端与服务器的接受与发送能力，与目标服务器建立链接</p>
-</li>
-<li><p>HTTPS 握手</p>
-</li>
-<li><p>发送 http 请求返回数据 HTML</p>
-</li>
-<li><p>解析 HTML 渲染</p>
-</li>
-<li><p>TCP 断开链接（4 次挥手）</p>
-</li>
-</ol>
-<h3 id="渲染过程"><a href="#渲染过程" class="headerlink" title="渲染过程"></a>渲染过程</h3><ol>
-<li>渲染流程</li>
-</ol>
-<p><img src="/images/render.png"><br>渲染流程的主要四个步骤<br>1.1 解析 HTML 生成 DOM 树<br>1.2 解析 css 生成 CSSOM 树<br>1.3 根据 DOM 和 CSSOM 树构建 Render 树<br>1.4 布局 render 树<br>1.5 绘制 render 树</p>
-<ol>
-<li><p>渲染细节<br>2.1 生成 DOM 树<br>DOM 树的构建过程是一个深度遍历过程，当前节点的所有子节点都构建好后才会去构建当前节点的下一个兄弟节点。DOM 树的节点就时 document 对象<br>DOM 树的生成过程中可能被 css 和 js 的加载执行阻塞<br>2.2 生成 CSSOM 树<br>DOM 树生成的同时会生成样式结构体 CSSOM 树，<br>2.3 生成 Render 树<br>根据 CSSOM 树和 DOM 树构造渲染树，渲染树包含颜色尺寸，render 树是用于显示，，那些不可见元素不在 render 树中出现<br>2.4 布局<br>根据 render 树的样式规则，浏览器会根据这些信息进行布局，从上到下从根节点开始画<br>2.5 绘制<br>渲染引擎会遍历 render 树，并且调用 render 的 paint（）方法进行绘制<br>这样一个完整的页面就渲染出来了</p>
-</li>
-<li><p>重排(回流)与重绘<br>3.1 在样式的尺寸发生改变的时候就会引起浏览器的重排（回流）机制进行重新计算渲染<br>3.2 在颜色等不涉及尺寸的改变时会引起浏览器的重绘机制重新绘制页面</p>
-</li>
-</ol>
+                <h3 id="vue3源码手写-effect实现"><a href="#vue3源码手写-effect实现" class="headerlink" title="vue3源码手写-effect实现"></a>vue3源码手写-effect实现</h3><h6 id="1-packages-reactivity-src-effect-ts"><a href="#1-packages-reactivity-src-effect-ts" class="headerlink" title="1. packages\reactivity\src\effect.ts"></a>1. packages\reactivity\src\effect.ts</h6><blockquote>
+<p>第一步在 packages\reactivity\src\effect.ts 创建effect文件，effect中创建trigger做更新处理</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 更新</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">trigger</span>(<span class="params">target, type, key?, value?, oldValue?</span>) &#123;</span><br><span class="line">  <span class="comment">// 获取一下目标对象，有值那么说明目标对象有对应的依赖收集</span></span><br><span class="line">  <span class="keyword">const</span> depsMap = targetMap.<span class="title function_">get</span>(target);</span><br><span class="line">  <span class="comment">// 没有对应的依赖收集就直接retun</span></span><br><span class="line">  <span class="keyword">if</span> (!depsMap) <span class="keyword">return</span>;</span><br><span class="line">  <span class="comment">// 利用set集合特性防止有多个相同的改动重复执行</span></span><br><span class="line">  <span class="keyword">let</span> effectSet = <span class="keyword">new</span> <span class="title class_">Set</span>();</span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">add</span> = (<span class="params">effectAdd</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (effectAdd) &#123;</span><br><span class="line">      effectAdd.<span class="property">array</span>.<span class="title function_">forEach</span>(<span class="function">(<span class="params">element</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 这里是去重</span></span><br><span class="line">        effectSet.<span class="title function_">add</span>(element);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 对数组进行特殊处理</span></span><br><span class="line">  <span class="keyword">if</span> (key === <span class="string">&quot;length&quot;</span> &amp;&amp; <span class="title function_">isArray</span>(target)) &#123;</span><br><span class="line">    depsMap.<span class="title function_">forEach</span>(<span class="function">(<span class="params">dep, key</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (key === <span class="string">&quot;length&quot;</span> || key &gt; value) &#123;</span><br><span class="line">        <span class="comment">// depsMap.get(key) 这里是拿到对应的目标对象下面的属性下面收集的依赖</span></span><br><span class="line">        <span class="title function_">add</span>(dep);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (key != <span class="literal">undefined</span>) &#123;</span><br><span class="line">      <span class="comment">// depsMap.get(key) 这里是拿到对应的目标对象下面的属性下面收集的依赖</span></span><br><span class="line">      <span class="title function_">add</span>(depsMap.<span class="title function_">get</span>(key));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 数组 修改 索引</span></span><br><span class="line">    <span class="keyword">switch</span>(type)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="title class_">TriggerOpTypes</span>.<span class="property">ADD</span>:</span><br><span class="line">            <span class="keyword">if</span>(<span class="title function_">isArray</span>(target) &amp;&amp; <span class="title function_">isIntegerKey</span>(key))&#123;</span><br><span class="line">                <span class="title function_">add</span>(depsMap.<span class="title function_">get</span>(<span class="string">&#x27;length&#x27;</span>))</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 执行对应的依赖</span></span><br><span class="line">  effectSet.<span class="title function_">forEach</span>(<span class="function">(<span class="params">effect: any</span>) =&gt;</span> <span class="title function_">effect</span>());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="2-baseHandlers-依赖收集的地方进行更新操作"><a href="#2-baseHandlers-依赖收集的地方进行更新操作" class="headerlink" title="2. baseHandlers 依赖收集的地方进行更新操作"></a>2. baseHandlers 依赖收集的地方进行更新操作</h6><blockquote>
+<p>第二步在 baseHandlers 依赖收集的地方进行更新操作</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  代理中的set函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">createSetter</span>(<span class="params">shallow=<span class="literal">false</span></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span> <span class="title function_">set</span>(<span class="params">target,key,value,receiver</span>)&#123;</span><br><span class="line">       </span><br><span class="line">        <span class="comment">// 判断是数组还是对 是添加值还是修改</span></span><br><span class="line">        <span class="keyword">const</span> oldValue = target[key]</span><br><span class="line">        <span class="comment">// 判断 是不是数组 值是不是正数 是不是新增 或者 对象的值有没有</span></span><br><span class="line">        <span class="keyword">let</span> haskey = <span class="title function_">isArray</span>(target) &amp;&amp; <span class="title function_">isIntegerKey</span>(key) ? <span class="title class_">Number</span>(key) &lt;target.<span class="property">length</span> :<span class="title function_">hasOwn</span>(target,key)</span><br><span class="line">        <span class="comment">// 通过映射拿到新的值</span></span><br><span class="line">        <span class="keyword">const</span> result = <span class="title class_">Reflect</span>.<span class="title function_">set</span>(target,key,value,receiver)</span><br><span class="line">        <span class="comment">// 没有对应的值 新增   </span></span><br><span class="line">        <span class="keyword">if</span>(!haskey)&#123;</span><br><span class="line">                <span class="title function_">trigger</span>(target,<span class="title class_">TriggerOpTypes</span>.<span class="property">ADD</span>,key,value)</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">// 有对应的值就是修改 ，修改的时候要判断是否一致。新值老值</span></span><br><span class="line">                <span class="keyword">if</span>(!<span class="title function_">hasChange</span>(value,oldValue))&#123;</span><br><span class="line">                    <span class="comment">// 不一致的时候修改传入新值 value 老值 oldValue</span></span><br><span class="line">                    <span class="title function_">trigger</span>(target,<span class="title class_">TriggerOpTypes</span>.<span class="property">SET</span>,key,value,oldValue)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">       </span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h6 id="创建-operations-ts-文件定义参数"><a href="#创建-operations-ts-文件定义参数" class="headerlink" title="创建 operations.ts 文件定义参数"></a>创建 operations.ts 文件定义参数</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">export const enum TrackOpTypes &#123;</span><br><span class="line">    GET = &#x27;get&#x27;,</span><br><span class="line">    HAS = &#x27;has&#x27;,</span><br><span class="line">    ITERATE = &#x27;iterate&#x27;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  export const enum TriggerOpTypes &#123;</span><br><span class="line">    SET = &#x27;set&#x27;,</span><br><span class="line">    ADD = &#x27;add&#x27;,</span><br><span class="line">    DELETE = &#x27;delete&#x27;,</span><br><span class="line">    CLEAR = &#x27;clear&#x27;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果需要源码请访问<a target="_blank" rel="noopener" href="https://github.com/843378894/mini-vue3">https://github.com/843378894/mini-vue3</a></p>
+</blockquote>
 
                 
             </div>
@@ -540,7 +516,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://843378894.github.io/2023/04/10/%E6%B5%8F%E8%A7%88%E5%99%A8-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/">https://843378894.github.io/2023/04/10/%E6%B5%8F%E8%A7%88%E5%99%A8-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/</a>
+                    <a href="https://843378894.github.io/2023/04/10/vue3%E6%BA%90%E7%A0%81%E6%89%8B%E5%86%99-%E6%9B%B4%E6%96%B0/">https://843378894.github.io/2023/04/10/vue3%E6%BA%90%E7%A0%81%E6%89%8B%E5%86%99-%E6%9B%B4%E6%96%B0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -578,8 +554,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">
-                                    <span class="chip bg-color">浏览器</span>
+                                <a href="/tags/VUE3/">
+                                    <span class="chip bg-color">VUE3</span>
                                 </a>
                             
                         </div>
@@ -753,13 +729,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/04/10/vue3%E6%BA%90%E7%A0%81%E6%89%8B%E5%86%99-%E6%9B%B4%E6%96%B0/">
+                <a href="/2023/04/12/vite-%E9%85%8D%E7%BD%AE/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="vue3源码手写-对象数组跟新">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="vite-配置">
                         
-                        <span class="card-title">vue3源码手写-对象数组跟新</span>
+                        <span class="card-title">vite-配置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -770,14 +746,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-10
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-12
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%BA%90%E7%A0%81/" class="post-category">
-                                    源码
+                            <a href="/categories/vite/" class="post-category">
+                                    vite
                                 </a>
                             
                             
@@ -787,8 +763,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/VUE3/">
-                        <span class="chip bg-color">VUE3</span>
+                    <a href="/tags/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/">
+                        <span class="chip bg-color">构建工具</span>
                     </a>
                     
                 </div>
@@ -802,13 +778,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/04/07/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA-Commit%E5%BC%BA%E5%88%B6%E6%A0%A1%E9%AA%8C/">
+                <a href="/2023/04/10/%E6%B5%8F%E8%A7%88%E5%99%A8-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="项目搭建-Commit 强制校验">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="浏览器渲染原理">
                         
-                        <span class="card-title">项目搭建-Commit 强制校验</span>
+                        <span class="card-title">浏览器渲染原理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -819,14 +795,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-10
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%BC%BA%E5%88%B6%E6%A0%A1%E9%AA%8C/" class="post-category">
-                                    强制校验
+                            <a href="/categories/%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/" class="post-category">
+                                    渲染原理
                                 </a>
                             
                             
@@ -836,8 +812,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/">
-                        <span class="chip bg-color">项目搭建</span>
+                    <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">
+                        <span class="chip bg-color">浏览器</span>
                     </a>
                     
                 </div>
