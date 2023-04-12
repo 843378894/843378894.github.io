@@ -29,6 +29,31 @@
     
     
     <entry>
+      <title>性能测试</title>
+      <link href="/2023/04/12/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+      <url>/2023/04/12/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/</url>
+      
+        <content type="html"><![CDATA[<h3 id="在面试的时候经常被问到你对性能优化有什么了解"><a href="#在面试的时候经常被问到你对性能优化有什么了解" class="headerlink" title="在面试的时候经常被问到你对性能优化有什么了解"></a>在面试的时候经常被问到你对性能优化有什么了解</h3><ol><li>你对你的页面性能真的了解过嘛，你真的知道如何测试嘛</li><li>今天为大家分享一个性能测试最简单的方法 lighthouse<br>2.1 用 chrome 浏览器打开你需要测试的网页<br>2.2 F12 选择 lighthouse 就会出现如图的界面<br><img src="/images/Lighthouse.png"><br>2.3 我们能看到 mode(模式) 我们使用默认的 Navigation(导航)就可以了<br>2.4 Device(设备)就按需选择是移动还是桌面<br>2.5 Cateories(类别)<br>Performance(性能)<br>Accessibility(无障碍功能)<br>Best practices(最佳做法)<br>SEO(SEO)<br>Progressive Web App(渐进式 web 应用)<br>2.6 点击 page load 分析网页加载情况<br>2.7 这样就将你的网页性能给测试出来了并且给出了相应的整改措施</li><li>对于我个人而言能按照 lighthouse 的性能报告给出的相应的整改措施而言就已经足够了</li></ol><h3 id="性能测试报告"><a href="#性能测试报告" class="headerlink" title="性能测试报告"></a>性能测试报告</h3><p><img src="/images/Lighthouse01.jpeg"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 性能测试 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 性能优化 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vue3源码手写-对象数组跟新</title>
       <link href="/2023/04/10/vue3%E6%BA%90%E7%A0%81%E6%89%8B%E5%86%99-%E6%9B%B4%E6%96%B0/"/>
       <url>/2023/04/10/vue3%E6%BA%90%E7%A0%81%E6%89%8B%E5%86%99-%E6%9B%B4%E6%96%B0/</url>
