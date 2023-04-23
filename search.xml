@@ -29,6 +29,31 @@
     
     
     <entry>
+      <title>模拟接口-mockjs</title>
+      <link href="/2023/04/23/%E6%A8%A1%E6%8B%9F%E6%8E%A5%E5%8F%A3-mockjs/"/>
+      <url>/2023/04/23/%E6%A8%A1%E6%8B%9F%E6%8E%A5%E5%8F%A3-mockjs/</url>
+      
+        <content type="html"><![CDATA[<h3 id="mockjs-是做什么用的呢"><a href="#mockjs-是做什么用的呢" class="headerlink" title="mockjs 是做什么用的呢"></a>mockjs 是做什么用的呢</h3><blockquote><p>mockjs 是为了我们前端人员在页面 ui 已经画好了的情况下，后端兄弟们没有及时跟上接口的时候不至于闲着。我们自己模拟接口请求数据做交互，提前将任务完善。</p></blockquote><h3 id="mockjs-如何使用"><a href="#mockjs-如何使用" class="headerlink" title="mockjs 如何使用"></a>mockjs 如何使用</h3><blockquote><p>mockjs 的功能很强大，能够生成随机参数之类的。我就说说我实际使用情况吧，简单粗暴</p></blockquote><ol><li>下载 mockjs<blockquote><p>npm i mockjs -D</p></blockquote></li><li>创建 mock 文件夹新建 index.js</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  import Mock from &#x27;mockjs&#x27;</span><br><span class="line">  const baseUrl = &#x27; http://localhost:4000/&#x27;</span><br><span class="line">  // 你要返回的数据你PRD上的数据结构</span><br><span class="line">  const data =&#123;&#125;</span><br><span class="line">  &lt;!-- 你PRD上的接口地址 --&gt;</span><br><span class="line">Mock.mock(baseUrl+&#x27;/a/b/c&#x27;,&#x27;post&#x27;,(data)=&gt;&#123;</span><br><span class="line">  return data</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure><ol start="3"><li>main.js 中引入你刚刚创建的 mock&#x2F;index.js<br><code> import &#39;@/mock/index.js&#39;</code></li><li>上面就是 mockjs 的使用这样就能拦截掉你的请求，对不在 mock&#x2F;index.js 中的接口无影响，按照你需要的数据接口，你需要的接口构造一下就完全符合了你的接口请求要求</li><li>注意哦，mock 的东西不要上传到库中。接口能联调之后直接将 main.js 中的引用注释掉</li></ol><p>mockjs 是一款非常实用的接口模拟插件</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 模拟接口 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 项目搭建 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vite-配置</title>
       <link href="/2023/04/12/vite-%E9%85%8D%E7%BD%AE/"/>
       <url>/2023/04/12/vite-%E9%85%8D%E7%BD%AE/</url>
