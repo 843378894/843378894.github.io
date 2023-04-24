@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="vue3源码手写-环境搭建, 博客，前端">
+    <meta name="keywords" content="webpack-入门使用, 博客，前端">
     <meta name="description" content="平凡的超越之道，持之以恒">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>vue3源码手写-环境搭建 | 刘曾个人博客</title>
+    <title>webpack-入门使用 | 刘曾个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">vue3源码手写-环境搭建</h1>
+                    <h1 class="description center-align post-title">webpack-入门使用</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/VUE3/">
-                                <span class="chip bg-color">VUE3</span>
+                            <a href="/tags/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/">
+                                <span class="chip bg-color">项目搭建</span>
                             </a>
                         
                     </div>
@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%BA%90%E7%A0%81/" class="post-category">
-                                源码
+                            <a href="/categories/webpack/" class="post-category">
+                                webpack
                             </a>
                         
                     </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-03-16
+                    2023-04-24
                 </div>
                 
 
@@ -477,30 +477,46 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="vue3源码手写-环境搭建"><a href="#vue3源码手写-环境搭建" class="headerlink" title="vue3源码手写-环境搭建"></a>vue3源码手写-环境搭建</h3><blockquote>
-<p>工作中开始正式使用vue3，既然使用了就看看源码手写一个mini版。今天时间有限先从环境搭建开始，那么请往下看</p>
-</blockquote>
-<h6 id="1-rollup打包monorepo"><a href="#1-rollup打包monorepo" class="headerlink" title="1. rollup打包monorepo"></a>1. rollup打包monorepo</h6><blockquote>
-<p>在我们查看源码文件的时候你会发现使用的是rollup打包monorepo。这样的方式有什么好处呢。能够让每个小的包能独立打包运行。也能整体打包运行，vue3源码的所有内容堵在packages文件夹下面，没包都是独立可打包运行的。</p>
-</blockquote>
-<h6 id="2-创建文件夹初始化文件"><a href="#2-创建文件夹初始化文件" class="headerlink" title="2. 创建文件夹初始化文件"></a>2. 创建文件夹初始化文件</h6><blockquote>
+                <h3 id="webpack-是什么"><a href="#webpack-是什么" class="headerlink" title="webpack 是什么"></a>webpack 是什么</h3><p>webpack 是代码编译工具，有入口、出口、loader 和插件。webpack 是一个用于现代 JavaScript 应用程序的静态模块打包工具。当 webpack 处理应用程序时，它会在内部构建一个依赖图(dependency graph)，此依赖图对应映射到项目所需的每个模块，并生成一个或多个 bundle。</p>
+<h3 id="使用-webpack-创建一个项目"><a href="#使用-webpack-创建一个项目" class="headerlink" title="使用 webpack 创建一个项目"></a>使用 webpack 创建一个项目</h3><ol>
+<li><p>创建一个文件夹,以你的项目名称命名</p>
+</li>
+<li><p>初始化 npm 用来安装依赖包<br><code>npm init -y</code></p>
+</li>
+<li><p>安装 webpack，接着安装 webpack-cli 执行下面命令就行<br><code>npm install webpack webpack-cli --save-dev</code></p>
+</li>
+<li><p>现在的项目什么都还没有我们要按需创建自己的文件夹和文件，</p>
 <ol>
-<li>创建一个my-mini-vue3文件</li>
-<li>进入到文件打开终端运行初始化命令， yarn init -y</li>
-<li>命令运行完之后会生成package.json 文件</li>
+<li>先创建 index.html 文件必不可少的</li>
+<li>创建 src 文件夹与 index.html 同级</li>
+<li>src 文件夹下面创建一个入口文件 index.js 随便写点啥吧如下<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import _ from &#x27;lodash&#x27;;</span><br><span class="line">function component() &#123;</span><br><span class="line">const element = document.createElement(&#x27;div&#x27;);</span><br><span class="line">element.innerHTML = \_.join([&#x27;Hello&#x27;, &#x27;webpack&#x27;], &#x27; &#x27;);</span><br><span class="line">return element;</span><br><span class="line">&#125;</span><br><span class="line">document.body.appendChild(component());</span><br></pre></td></tr></table></figure></li>
+<li>现在我们是不是就可以通过访问 html 文件打开项目了，但是和 vue-cli 那种 npm run dev 打开的怎么弄呢</li>
+<li>创建 dist 文件夹这个是放置打包文件的</li>
 </ol>
-</blockquote>
-<h6 id="3-依赖下载"><a href="#3-依赖下载" class="headerlink" title="3. 依赖下载"></a>3. 依赖下载</h6><blockquote>
+</li>
+<li><p>现在我们就要来设置脚本了能够使用 npm run dev 启动项目</p>
 <ol>
-<li>下载ts，运行 yarn add typescript -D -W</li>
-<li>生成ts配置文件 运行 npx tsc –init()</li>
-<li>安装我们打包需要的依赖运行 yarn add rollup rollup-plugin-typescript2 @rollup&#x2F;plugin-node-resolve @rollup&#x2F;plugin-json execa -D -W</li>
+<li><p>我们先安装一个插件 webpack-dev-server 插件会监听源代码，当修改了源代码 webpack 会自动对项目进行打包构建<br><code>npm install webpack-dev-server</code></p>
+</li>
+<li><p>并且在 package.json 文件中添加脚本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;name&quot;: &quot;my-micro-app&quot;,</span><br><span class="line">&quot;version&quot;: &quot;1.0.0&quot;,</span><br><span class="line">&quot;description&quot;: &quot;&quot;,</span><br><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  &quot;dev&quot;: &quot;webpack server&quot;,</span><br><span class="line">  &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,</span><br><span class="line">  &quot;build&quot;: &quot;webpack&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;keywords&quot;: [],</span><br><span class="line">&quot;author&quot;: &quot;&quot;,</span><br><span class="line">&quot;license&quot;: &quot;ISC&quot;,</span><br><span class="line">&quot;devDependencies&quot;: &#123;</span><br><span class="line">  &quot;html-webpack-plugin&quot;: &quot;^5.5.1&quot;,</span><br><span class="line">  &quot;webpack&quot;: &quot;^5.80.0&quot;,</span><br><span class="line">  &quot;webpack-cli&quot;: &quot;^5.0.2&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;dependencies&quot;: &#123;</span><br><span class="line">  &quot;webpack-dev-server&quot;: &quot;^4.13.3&quot;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果你认真看了你就会发现”main”:”index.js”被我们去除了这个你往下看就知道了</p>
+</li>
+<li><p>我们现在执行 npm run dev 就能直接运行项目了如果不行先配置一下 webpack.config.js</p>
+</li>
 </ol>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&quot;devDependencies&quot;: &#123;</span><br><span class="line">       &quot;@rollup/plugin-json&quot;: &quot;^6.0.0&quot;,</span><br><span class="line">       &quot;@rollup/plugin-node-resolve&quot;: &quot;^15.0.1&quot;,</span><br><span class="line">       &quot;execa&quot;: &quot;^7.1.1&quot;,</span><br><span class="line">       &quot;rollup&quot;: &quot;^3.19.1&quot;,</span><br><span class="line">       &quot;rollup-plugin-typescript2&quot;: &quot;^0.34.1&quot;</span><br><span class="line">   &#125;</span><br><span class="line">   @rollup/plugin-node-resolve 插件允许我们加载第三方模块</span><br><span class="line">   @rollup/plugin-json 支持导入json，没有 json 插件的支持我们在导入 json 文件时会报错</span><br><span class="line">   rollup-plugin-typescript2  typescript的差距 配合tsconfig.json</span><br><span class="line">   execa 插件将它们转换为ES6版本</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>好了今天环境已经搭建好了，明天来写打包配置的东西，欢迎大家指点</p>
-</blockquote>
+</li>
+<li><p>我们现在要创建 webpack.config.js</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&#x27;path&#x27;);</span><br><span class="line">var htmlWebpackPlugin = require(&#x27;html-webpack-plugin&#x27;);</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  // 打包的入口文件</span><br><span class="line">  entry: &#x27;./src/index.js&#x27;,</span><br><span class="line">  // 打包时的出口</span><br><span class="line">  output: &#123;</span><br><span class="line">    // 打包生成js的名称</span><br><span class="line">    filename: &#x27;main.js&#x27;,</span><br><span class="line">    // 打包的文件放置的地方__dirname是根目录可以去看看nodejs path了解</span><br><span class="line">    path: path.resolve(__dirname, &#x27;dist&#x27;),</span><br><span class="line">  &#125;,</span><br><span class="line">  // 这里是我们启动时的配置</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    open: true, //自动打开浏览器</span><br><span class="line">    hot: true, //热更新</span><br><span class="line">    host: &#x27;localhost&#x27;, //本地域名</span><br><span class="line">    port: 8080, //端口号</span><br><span class="line">    proxy: &#123;&#125;, //同vue.config.js 里面的代理配置</span><br><span class="line">  &#125;,</span><br><span class="line">  // 这里是环境配置</span><br><span class="line">  mode: &#x27;development&#x27;,</span><br><span class="line">  plugins: [</span><br><span class="line">    // 添加plugins节点配置插件</span><br><span class="line">    new htmlWebpackPlugin(&#123;</span><br><span class="line">      title: &#x27;Development&#x27;,</span><br><span class="line">      template: path.join(__dirname, &#x27;src/index.html&#x27;), //模板路径</span><br><span class="line">      filename: &#x27;index.html&#x27;, //自动生成的HTML文件的名称</span><br><span class="line">    &#125;),</span><br><span class="line">  ],</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>细心的朋友会发现我安装了 html-webpack-plugin 插件，该插件的作用是安装指定的模板在 dist 文件夹中生成一个 html 文件并且会将我们打包好的 main.js 文件引入进去。这样做的作用是什么呢，难道我们手写不行嘛，这样的原因是我们在二次打包的时候会先清除掉上一次打包的东西。动态生成就方便了不用再去关注了。</li>
+<li>安装 html-webpack-plugin 执行下面命令然后按上面的配置就行了。这样一个基本的项目就搭建起来了。能够打包能够本地运行了<br><code>npm i html-webpack-plugin --save-dev</code></li>
+</ol>
+<p>每天碎片化的学一点点我们就长进一点点。不管有没有用先学起来。</p>
 
                 
             </div>
@@ -527,7 +543,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://843378894.github.io/2023/03/16/vue3%E6%BA%90%E7%A0%81%E6%89%8B%E5%86%99-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">https://843378894.github.io/2023/03/16/vue3%E6%BA%90%E7%A0%81%E6%89%8B%E5%86%99-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</a>
+                    <a href="https://843378894.github.io/2023/04/24/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA-webpack/">https://843378894.github.io/2023/04/24/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA-webpack/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -565,8 +581,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/VUE3/">
-                                    <span class="chip bg-color">VUE3</span>
+                                <a href="/tags/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/">
+                                    <span class="chip bg-color">项目搭建</span>
                                 </a>
                             
                         </div>
@@ -736,17 +752,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/03/22/vue3%E6%BA%90%E7%A0%81%E6%89%8B%E5%86%99-reactive%E5%AE%9E%E7%8E%B0/">
+                <a href="/2023/04/24/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA-webpack/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="vue3源码手写-reactive实现">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="webpack-入门使用">
                         
-                        <span class="card-title">vue3源码手写-reactive实现</span>
+                        <span class="card-title">webpack-入门使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -756,26 +773,27 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-03-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%BA%90%E7%A0%81/" class="post-category">
-                                    源码
+                            <a href="/categories/webpack/" class="post-category">
+                                    webpack
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/VUE3/">
-                        <span class="chip bg-color">VUE3</span>
+                    <a href="/tags/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/">
+                        <span class="chip bg-color">项目搭建</span>
                     </a>
                     
                 </div>
@@ -789,13 +807,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/03/16/vue3%E6%BA%90%E7%A0%81%E6%89%8B%E5%86%99-%E6%89%93%E5%8C%85%E9%85%8D%E7%BD%AE/">
+                <a href="/2023/04/23/%E6%A8%A1%E6%8B%9F%E6%8E%A5%E5%8F%A3-mockjs/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="vue3源码手写-打包配置">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="模拟接口-mockjs">
                         
-                        <span class="card-title">vue3源码手写-打包配置</span>
+                        <span class="card-title">模拟接口-mockjs</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -806,14 +824,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-23
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%BA%90%E7%A0%81/" class="post-category">
-                                    源码
+                            <a href="/categories/%E6%A8%A1%E6%8B%9F%E6%8E%A5%E5%8F%A3/" class="post-category">
+                                    模拟接口
                                 </a>
                             
                             
@@ -823,8 +841,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/VUE3/">
-                        <span class="chip bg-color">VUE3</span>
+                    <a href="/tags/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/">
+                        <span class="chip bg-color">项目搭建</span>
                     </a>
                     
                 </div>
