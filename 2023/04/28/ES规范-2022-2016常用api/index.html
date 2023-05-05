@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="webpack-入门使用, 博客，前端">
+    <meta name="keywords" content="ES2022-ES2016常用api, 博客，前端">
     <meta name="description" content="平凡的超越之道，持之以恒">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>webpack-入门使用 | 刘曾个人博客</title>
+    <title>ES2022-ES2016常用api | 刘曾个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">webpack-入门使用</h1>
+                    <h1 class="description center-align post-title">ES2022-ES2016常用api</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/">
-                                <span class="chip bg-color">项目搭建</span>
+                            <a href="/tags/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">
+                                <span class="chip bg-color">知识总结</span>
                             </a>
                         
                     </div>
@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/webpack/" class="post-category">
-                                webpack
+                            <a href="/categories/ES%E8%A7%84%E8%8C%83/" class="post-category">
+                                ES规范
                             </a>
                         
                     </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-04-24
+                    2023-04-28
                 </div>
                 
 
@@ -477,46 +477,73 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="webpack-是什么"><a href="#webpack-是什么" class="headerlink" title="webpack 是什么"></a>webpack 是什么</h3><p>webpack 是代码编译工具，有入口、出口、loader 和插件。webpack 是一个用于现代 JavaScript 应用程序的静态模块打包工具。当 webpack 处理应用程序时，它会在内部构建一个依赖图(dependency graph)，此依赖图对应映射到项目所需的每个模块，并生成一个或多个 bundle。</p>
-<h3 id="使用-webpack-创建一个项目"><a href="#使用-webpack-创建一个项目" class="headerlink" title="使用 webpack 创建一个项目"></a>使用 webpack 创建一个项目</h3><ol>
-<li><p>创建一个文件夹,以你的项目名称命名</p>
-</li>
-<li><p>初始化 npm 用来安装依赖包<br><code>npm init -y</code></p>
-</li>
-<li><p>安装 webpack，接着安装 webpack-cli 执行下面命令就行<br><code>npm install webpack webpack-cli --save-dev</code></p>
-</li>
-<li><p>现在的项目什么都还没有我们要按需创建自己的文件夹和文件，</p>
-<ol>
-<li>先创建 index.html 文件必不可少的</li>
-<li>创建 src 文件夹与 index.html 同级</li>
-<li>src 文件夹下面创建一个入口文件 index.js 随便写点啥吧如下<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import _ from &#x27;lodash&#x27;;</span><br><span class="line">function component() &#123;</span><br><span class="line">const element = document.createElement(&#x27;div&#x27;);</span><br><span class="line">element.innerHTML = \_.join([&#x27;Hello&#x27;, &#x27;webpack&#x27;], &#x27; &#x27;);</span><br><span class="line">return element;</span><br><span class="line">&#125;</span><br><span class="line">document.body.appendChild(component());</span><br></pre></td></tr></table></figure></li>
-<li>现在我们是不是就可以通过访问 html 文件打开项目了，但是和 vue-cli 那种 npm run dev 打开的怎么弄呢</li>
-<li>创建 dist 文件夹这个是放置打包文件的</li>
-</ol>
-</li>
-<li><p>现在我们就要来设置脚本了能够使用 npm run dev 启动项目</p>
-<ol>
-<li><p>我们先安装一个插件 webpack-dev-server 插件会监听源代码，当修改了源代码 webpack 会自动对项目进行打包构建<br><code>npm install webpack-dev-server</code></p>
-</li>
-<li><p>并且在 package.json 文件中添加脚本</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;name&quot;: &quot;my-micro-app&quot;,</span><br><span class="line">&quot;version&quot;: &quot;1.0.0&quot;,</span><br><span class="line">&quot;description&quot;: &quot;&quot;,</span><br><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  &quot;dev&quot;: &quot;webpack server&quot;,</span><br><span class="line">  &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,</span><br><span class="line">  &quot;build&quot;: &quot;webpack&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;keywords&quot;: [],</span><br><span class="line">&quot;author&quot;: &quot;&quot;,</span><br><span class="line">&quot;license&quot;: &quot;ISC&quot;,</span><br><span class="line">&quot;devDependencies&quot;: &#123;</span><br><span class="line">  &quot;html-webpack-plugin&quot;: &quot;^5.5.1&quot;,</span><br><span class="line">  &quot;webpack&quot;: &quot;^5.80.0&quot;,</span><br><span class="line">  &quot;webpack-cli&quot;: &quot;^5.0.2&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;dependencies&quot;: &#123;</span><br><span class="line">  &quot;webpack-dev-server&quot;: &quot;^4.13.3&quot;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果你认真看了你就会发现”main”:”index.js”被我们去除了这个你往下看就知道了</p>
-</li>
-<li><p>我们现在执行 npm run dev 就能直接运行项目了如果不行先配置一下 webpack.config.js</p>
-</li>
-</ol>
-</li>
-<li><p>我们现在要创建 webpack.config.js</p>
-</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&#x27;path&#x27;);</span><br><span class="line">var htmlWebpackPlugin = require(&#x27;html-webpack-plugin&#x27;);</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  // 打包的入口文件</span><br><span class="line">  entry: &#x27;./src/index.js&#x27;,</span><br><span class="line">  // 打包时的出口</span><br><span class="line">  output: &#123;</span><br><span class="line">    // 打包生成js的名称</span><br><span class="line">    filename: &#x27;main.js&#x27;,</span><br><span class="line">    // 打包的文件放置的地方__dirname是根目录可以去看看nodejs path了解</span><br><span class="line">    path: path.resolve(__dirname, &#x27;dist&#x27;),</span><br><span class="line">  &#125;,</span><br><span class="line">  // 这里是我们启动时的配置</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    open: true, //自动打开浏览器</span><br><span class="line">    hot: true, //热更新</span><br><span class="line">    host: &#x27;localhost&#x27;, //本地域名</span><br><span class="line">    port: 8080, //端口号</span><br><span class="line">    proxy: &#123;&#125;, //同vue.config.js 里面的代理配置</span><br><span class="line">  &#125;,</span><br><span class="line">  // 这里是环境配置</span><br><span class="line">  mode: &#x27;development&#x27;,</span><br><span class="line">  plugins: [</span><br><span class="line">    // 添加plugins节点配置插件</span><br><span class="line">    new htmlWebpackPlugin(&#123;</span><br><span class="line">      title: &#x27;Development&#x27;,</span><br><span class="line">      template: path.join(__dirname, &#x27;src/index.html&#x27;), //模板路径</span><br><span class="line">      filename: &#x27;index.html&#x27;, //自动生成的HTML文件的名称</span><br><span class="line">    &#125;),</span><br><span class="line">  ],</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+                <h3 id="ES13-2022"><a href="#ES13-2022" class="headerlink" title="ES13(2022)"></a>ES13(2022)</h3><h4 id="1-类型字段声明"><a href="#1-类型字段声明" class="headerlink" title="1. 类型字段声明"></a>1. 类型字段声明</h4><p>在 ES13 之前，类字段只能在构造函数中声明，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Str&#123;</span><br><span class="line">  str =&#x27;123&#x27; // 不允许</span><br><span class="line">  constructor(name,age)&#123;// 构造函数</span><br><span class="line">      // 定义声明只能在构造函数中声明</span><br><span class="line">     this.name = name</span><br><span class="line">     this.age = age</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ol start="7">
-<li>细心的朋友会发现我安装了 html-webpack-plugin 插件，该插件的作用是安装指定的模板在 dist 文件夹中生成一个 html 文件并且会将我们打包好的 main.js 文件引入进去。这样做的作用是什么呢，难道我们手写不行嘛，这样的原因是我们在二次打包的时候会先清除掉上一次打包的东西。动态生成就方便了不用再去关注了。</li>
-<li>安装 html-webpack-plugin 执行下面命令然后按上面的配置就行了。这样一个基本的项目就搭建起来了。能够打包能够本地运行了<br><code>npm i html-webpack-plugin --save-dev</code></li>
-</ol>
-<p>每天碎片化的学一点点我们就长进一点点。不管有没有用先学起来。</p>
+<p>在 ES13 中取消了这个限制，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Str&#123;</span><br><span class="line">  color = &#x27;blue&#x27;;</span><br><span class="line">  age = 2;</span><br><span class="line">  name =&#x27;张三&#x27;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-私有方法和字段"><a href="#2-私有方法和字段" class="headerlink" title="2. 私有方法和字段"></a>2. 私有方法和字段</h4><p>使用 ES13，我们现在可以将私有字段和成员添加到类中。在方法字段中前加入#号就是私有变量不可被外部访问</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Str&#123;</span><br><span class="line">    #color = &#x27;blue&#x27;;</span><br><span class="line">    #age = 2;</span><br><span class="line">    name =&#x27;张三&#x27;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-静态类字段和静态私有方法"><a href="#3-静态类字段和静态私有方法" class="headerlink" title="3. 静态类字段和静态私有方法"></a>3. 静态类字段和静态私有方法</h4><p>在字段和方法前加入 static 修饰符就能定义静态字段和方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Str&#123;</span><br><span class="line">     static name = &#x27;zhangsan&#x27;</span><br><span class="line">     static fun ()&#123;</span><br><span class="line">       this.name= &#x27;zhaosi&#x27;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-at-方法进行索引"><a href="#4-at-方法进行索引" class="headerlink" title="4. at()方法进行索引"></a>4. at()方法进行索引</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const arr =[1,2,3,4,5]</span><br><span class="line">console.log(arr.at(-1)) // 5</span><br><span class="line">console.log(arr.at(-2)) // 4</span><br><span class="line">console.log(arr.at(1)) // 2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const str =&#x27;abcdefg&#x27;</span><br><span class="line">console.log(str.at(-1)) // f</span><br><span class="line">console.log(str.at(1)) // b</span><br><span class="line">console.log(str.at(0)) // a</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="5-findLast-从数组的末尾开始查找"><a href="#5-findLast-从数组的末尾开始查找" class="headerlink" title="5. findLast() 从数组的末尾开始查找"></a>5. findLast() 从数组的末尾开始查找</h4><p>findLast() 从数组的末尾开始查找与 find()方法使用一至，只是从末尾开始查找</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const arr = [10,20,30,40,50]</span><br><span class="line">console.log(arr.find(e =&gt; e==10)) // 10</span><br><span class="line">console.log(arr.findLast(e =&gt; e==40)) // 10 从末尾开始查找</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="6-findLastIndex-从末尾开始查找返回下标"><a href="#6-findLastIndex-从末尾开始查找返回下标" class="headerlink" title="6. findLastIndex() 从末尾开始查找返回下标"></a>6. findLastIndex() 从末尾开始查找返回下标</h4><p>findLastIndex() 从末尾开始查找返回下标</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const arr = [10,20,30,40,50]</span><br><span class="line">console.log(arr.findIndex(e =&gt; e==10)) // 0</span><br><span class="line">console.log(arr.findLastIndex(e =&gt; e==40)) // 3</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="7-hasOwn-判断对象中是否有该属性"><a href="#7-hasOwn-判断对象中是否有该属性" class="headerlink" title="7. hasOwn() 判断对象中是否有该属性"></a>7. hasOwn() 判断对象中是否有该属性</h4><p>使用 Object.hasOwn()可以判断目标对象中是否有对应的属性返回 true 或者 false</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  let obj = &#123;</span><br><span class="line">    name =&#x27;zhansan&#x27;</span><br><span class="line">  &#125;</span><br><span class="line">console.log(Objeact.hasOwn(obj,&#x27;nmae&#x27;)) // true</span><br><span class="line">console.log(Objeact.hasOwn(obj,&#x27;age&#x27;)) // false</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="ES12-2021"><a href="#ES12-2021" class="headerlink" title="ES12(2021)"></a>ES12(2021)</h3><h4 id="1-replaceAll-全部替换"><a href="#1-replaceAll-全部替换" class="headerlink" title="1. replaceAll 全部替换"></a>1. replaceAll 全部替换</h4><p>新的字符串方法，可以替换全部的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let str = &#x27;javaScript&#x27;</span><br><span class="line">console.log(str.replaceAll(&#x27;a&#x27;,&#x27;v&#x27;)) // jvvvScript</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-Promise-any-Promise-的短路返回"><a href="#2-Promise-any-Promise-的短路返回" class="headerlink" title="2. Promise.any() Promise 的短路返回"></a>2. Promise.any() Promise 的短路返回</h4><p>只要有一个 promise 完成，就会短路返回一个值，如果所有的都失败了就会抛出错误汇总</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let p1 = new Promise((resolve，reject)=&gt; setTimeout（reject,200,&#x27;张三&#x27;）)</span><br><span class="line">let p2 = new Promise((resolve，reject)=&gt; setTimeout（rresolve，reject,2000,&#x27;李四&#x27;）)</span><br><span class="line">let p3 = new Promise((resolve，reject)=&gt;setTimeout（ resolve，reject,3000,&#x27;王五&#x27;）)</span><br><span class="line">  Promise.any([p1,p2,p3]).then(value =&gt;&#123;</span><br><span class="line">    console.log(value) //李四</span><br><span class="line">  &#125;).catch()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="ES11-2020"><a href="#ES11-2020" class="headerlink" title="ES11(2020)"></a>ES11(2020)</h3><h4 id="1-可选链操作符"><a href="#1-可选链操作符" class="headerlink" title="1. 可选链操作符"></a>1. 可选链操作符</h4><p>可选链是访问对象的时候使用，不用担心属性是否存在，如果存在继续执行，不存在直接返回 undefined 不会报错</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let obj =&#123;</span><br><span class="line">       name:&#x27;zhangsan&#x27;,</span><br><span class="line">       age:&#123;</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br><span class="line">   console.log(obj?.name) //zhangsan</span><br><span class="line">   console.log(obj?.age?.name) //undefined</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-Promise-allSettled"><a href="#2-Promise-allSettled" class="headerlink" title="2. Promise.allSettled"></a>2. Promise.allSettled</h4><p>Promise.allSettled 方法接受一组 Promise，并且会返回所以的结果不管是成功还是失败</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const arr=[Promise.resolve(100),Promise.resolve(null),Promise.reject(&#x27;失败&#x27;)]</span><br><span class="line">Promise.allSettled(arr).then(results =&gt;&#123;</span><br><span class="line">        console.log(results) // [&#123;status:&quot;fulfilled&quot;,value:100&#125;,&#123;status:&quot;fulfilled&quot;,value:null&#125;,&#123;status:&quot;rejected&quot;,value:&#x27;失败&#x27;&#125;]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-空值合并符"><a href="#3-空值合并符" class="headerlink" title="3. 空值合并符"></a>3. 空值合并符</h4><p>当左边操作数未定义或为空时，该操作符将返回右边操作数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">let name</span><br><span class="line">console.log(name ?? &#x27;张三&#x27;) // 张三</span><br><span class="line">console.log(name || &#x27;张三&#x27;) // 张三</span><br><span class="line"></span><br><span class="line">let name=null</span><br><span class="line">console.log(name ?? &#x27;张三&#x27;) // 张三</span><br><span class="line">console.log(name || &#x27;张三&#x27;) // 张三</span><br><span class="line"></span><br><span class="line">let name=NaN</span><br><span class="line">console.log(name ?? &#x27;张三&#x27;) // NaN</span><br><span class="line">console.log(name || &#x27;张三&#x27;) // 张三</span><br><span class="line"></span><br><span class="line">let name=0</span><br><span class="line">console.log(name ?? &#x27;张三&#x27;) // 0</span><br><span class="line">console.log(name || &#x27;张三&#x27;) // 张三</span><br><span class="line"></span><br><span class="line">let name=false</span><br><span class="line">console.log(name ?? &#x27;张三&#x27;) // false</span><br><span class="line">console.log(name || &#x27;张三&#x27;) // 张三</span><br><span class="line"></span><br><span class="line">let name=&#x27;&#x27;</span><br><span class="line">console.log(name ?? &#x27;张三&#x27;) // &#x27;&#x27;</span><br><span class="line">console.log(name || &#x27;张三&#x27;) // 张三</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="ES10-2019"><a href="#ES10-2019" class="headerlink" title="ES10(2019)"></a>ES10(2019)</h3><h4 id="1-Object-entries"><a href="#1-Object-entries" class="headerlink" title="1. Object.entries()"></a>1. Object.entries()</h4><p>作用是将对象转为数组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let obj = &#123;name:&#x27;张三&#x27;,age&#x27;15&#x27;&#125;</span><br><span class="line">console.log(Object.entries(obj)) // [[&#x27;name&#x27;,&quot;张三&quot;],[&#x27;age&#x27;,&#x27;15&#x27;]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-Object-fromEntries"><a href="#2-Object-fromEntries" class="headerlink" title="2. Object.fromEntries()"></a>2. Object.fromEntries()</h4><p>作用是将数组转为对象</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let arr =[[&#x27;name&#x27;,&quot;张三&quot;],[&#x27;age&#x27;,&#x27;15&#x27;]]</span><br><span class="line">console.log(Object.fromEntries(arr)) // &#123;name:&#x27;张三&#x27;,age&#x27;15&#x27;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-flat"><a href="#3-flat" class="headerlink" title="3. flat()"></a>3. flat()</h4><p>数组扁平化</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let arr = [[1,2,3]]</span><br><span class="line">console.log(arr.flat()) // [1,2,3]</span><br><span class="line">//多层嵌套传入Infinity可以全部拉平</span><br><span class="line">let arr = [1,[2,[3,[4]]]]</span><br><span class="line"> console.log(arr.flat(Infinity)) // [1,2,3,4]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-flatMap"><a href="#4-flatMap" class="headerlink" title="4. flatMap()"></a>4. flatMap()</h4><p>将数组遍历之后拉平</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let arr = [&#x27;今天&#x27;,&quot;&quot;,&#x27;早上&#x27;]</span><br><span class="line">arr.map(s =&gt;s.split(&#x27;&#x27;)) //[[&quot;今&quot;,&quot;天&quot;],[],[&quot;早&quot;,&quot;上&quot;]]</span><br><span class="line">arr.flatMap(s =&gt;s.split(&#x27;&#x27;)) //[&quot;今&quot;,&quot;天&quot;,&quot;早&quot;,&quot;上&quot;]</span><br></pre></td></tr></table></figure>
+
+<h3 id="ES9-2018"><a href="#ES9-2018" class="headerlink" title="ES9(2018)"></a>ES9(2018)</h3><h4 id="1-异步迭代"><a href="#1-异步迭代" class="headerlink" title="1. 异步迭代"></a>1. 异步迭代</h4><p>异步迭代是以串行的方式运行异步操作</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">async function process(arr)&#123;</span><br><span class="line">    for await(let i of arr)&#123;</span><br><span class="line">        doSomething(i)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-Promise-finally"><a href="#2-Promise-finally" class="headerlink" title="2. Promise.finally()"></a>2. Promise.finally()</h4><p>不管成功还是失败都会执行的方法，常见的有 loading 的取消。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">getList().then().catch().finally()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-…-拓展运算符"><a href="#3-…-拓展运算符" class="headerlink" title="3. (…)拓展运算符"></a>3. (…)拓展运算符</h4><p>在 ES6 中我们就已经有拓展运算符了但是呢。只针对数组在 ES9 中将其完善能够在对象中使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let a =&#123;a:1,b:2&#125;</span><br><span class="line">let b =&#123;c:3,...a&#125; // &#123;a:1,b:2,c:3&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="ES8-2017"><a href="#ES8-2017" class="headerlink" title="ES8(2017)"></a>ES8(2017)</h3><h4 id="1-Object-values"><a href="#1-Object-values" class="headerlink" title="1. Object.values()"></a>1. Object.values()</h4><p>返回对象可枚举属性值的数组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let obj =&#123;a:1,b:2&#125;</span><br><span class="line">Object.values(obj) // [1,2]</span><br></pre></td></tr></table></figure>
+
+<h3 id="ES7-2016"><a href="#ES7-2016" class="headerlink" title="ES7(2016)"></a>ES7(2016)</h3><h4 id="includes"><a href="#includes" class="headerlink" title="includes()"></a>includes()</h4><p>数组查询方法，包含元素返回 true 不包含返回 false</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;].includes(&#x27;a&#x27;) // true</span><br><span class="line">[&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;].includes(&#x27;d&#x27;) // false</span><br></pre></td></tr></table></figure>
+
+<h4 id="幂运算符"><a href="#幂运算符" class="headerlink" title="幂运算符**"></a>幂运算符**</h4><p>幂运算符**</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6**2 // 36</span><br></pre></td></tr></table></figure>
 
                 
             </div>
@@ -543,7 +570,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://843378894.github.io/2023/04/24/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA-webpack/">https://843378894.github.io/2023/04/24/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA-webpack/</a>
+                    <a href="https://843378894.github.io/2023/04/28/ES%E8%A7%84%E8%8C%83-2022-2016%E5%B8%B8%E7%94%A8api/">https://843378894.github.io/2023/04/28/ES%E8%A7%84%E8%8C%83-2022-2016%E5%B8%B8%E7%94%A8api/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -581,8 +608,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/">
-                                    <span class="chip bg-color">项目搭建</span>
+                                <a href="/tags/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">
+                                    <span class="chip bg-color">知识总结</span>
                                 </a>
                             
                         </div>
@@ -752,9 +779,60 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/04/28/ES%E8%A7%84%E8%8C%83-2022-2016%E5%B8%B8%E7%94%A8api/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="ES2022-ES2016常用api">
+                        
+                        <span class="card-title">ES2022-ES2016常用api</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ES%E8%A7%84%E8%8C%83/" class="post-category">
+                                    ES规范
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">
+                        <span class="chip bg-color">知识总结</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2023/04/24/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA-webpack%E9%85%8D%E7%BD%AE/">
                     <div class="card-image">
@@ -772,64 +850,15 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
                             <a href="/categories/webpack/" class="post-category">
                                     webpack
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/">
-                        <span class="chip bg-color">项目搭建</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2023/04/23/%E5%BE%AE%E5%89%8D%E7%AB%AF-%E5%9F%BA%E5%BA%A7%E6%90%AD%E5%BB%BA/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="微前端-基座搭建">
-                        
-                        <span class="card-title">微前端-基座搭建</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-23
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%BE%AE%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    微前端
                                 </a>
                             
                             
