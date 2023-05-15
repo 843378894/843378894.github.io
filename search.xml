@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>对象-知识总结</title>
+      <link href="/2023/05/15/%E5%AF%B9%E8%B1%A1-%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
+      <url>/2023/05/15/%E5%AF%B9%E8%B1%A1-%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</url>
+      
+        <content type="html"><![CDATA[<h3 id="对象方法总结大全"><a href="#对象方法总结大全" class="headerlink" title="对象方法总结大全"></a>对象方法总结大全</h3><h4 id="Object-assign"><a href="#Object-assign" class="headerlink" title="Object.assign()"></a>Object.assign()</h4><p>将所以可以枚举属性的值从一个或多个对象复制到目标对象。有相同属性则后面的覆盖前面的</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let  obj1 = &#123;a:1,b:2&#125;</span><br><span class="line">let  obj2 = &#123;a:3,c:2&#125;</span><br><span class="line">let  obj3 = Object.assign(obj1,obj2)</span><br><span class="line">console.log(obj3) // &#123;b:2,a:3,c:2&#125;</span><br></pre></td></tr></table></figure><h4 id="Object-keys"><a href="#Object-keys" class="headerlink" title="Object.keys()"></a>Object.keys()</h4><p>将一个对象中所有的 key 值返回成一个数组（可枚举）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let obj1=&#123;b:2,a:3,c:2&#125;</span><br><span class="line">let arr1 =Object.keys(obj1)</span><br><span class="line">console.log(arr1) // [&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;]</span><br></pre></td></tr></table></figure><h4 id="Object-values"><a href="#Object-values" class="headerlink" title="Object.values()"></a>Object.values()</h4><p>将一个对象中所有的 value 值返回成一个数组（可枚举）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let obj1=&#123;b:2,a:3,c:2&#125;</span><br><span class="line">let arr1 =Object.values(obj1)</span><br><span class="line">console.log(arr1) // [&#x27;3&#x27;,&#x27;2&#x27;,&#x27;2&#x27;]</span><br></pre></td></tr></table></figure><h4 id="Object-hasOwn-判断对象中是否有该属性"><a href="#Object-hasOwn-判断对象中是否有该属性" class="headerlink" title="Object.hasOwn() 判断对象中是否有该属性"></a>Object.hasOwn() 判断对象中是否有该属性</h4><p>使用 Object.hasOwn()可以判断目标对象中是否有对应的属性返回 true 或者 false</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  let obj = &#123;</span><br><span class="line">    name =&#x27;zhansan&#x27;</span><br><span class="line">  &#125;</span><br><span class="line">console.log(Objeact.hasOwn(obj,&#x27;nmae&#x27;)) // true</span><br><span class="line">console.log(Objeact.hasOwn(obj,&#x27;age&#x27;)) // false</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><h4 id="Object-is"><a href="#Object-is" class="headerlink" title="Object.is()"></a>Object.is()</h4>]]></content>
+      
+      
+      <categories>
+          
+          <category> 知识总结 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 对象 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>数组-知识总结</title>
       <link href="/2023/05/08/%E6%95%B0%E7%BB%84-%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
       <url>/2023/05/08/%E6%95%B0%E7%BB%84-%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</url>

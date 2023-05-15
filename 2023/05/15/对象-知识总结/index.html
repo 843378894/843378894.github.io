@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="数组-知识总结, 博客，前端">
+    <meta name="keywords" content="对象-知识总结, 博客，前端">
     <meta name="description" content="平凡的超越之道，持之以恒">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>数组-知识总结 | 刘曾个人博客</title>
+    <title>对象-知识总结 | 刘曾个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">数组-知识总结</h1>
+                    <h1 class="description center-align post-title">对象-知识总结</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%95%B0%E7%BB%84/">
-                                <span class="chip bg-color">数组</span>
+                            <a href="/tags/%E5%AF%B9%E8%B1%A1/">
+                                <span class="chip bg-color">对象</span>
                             </a>
                         
                     </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-05-08
+                    2023-05-15
                 </div>
                 
 
@@ -477,53 +477,19 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="数组方法总结大全"><a href="#数组方法总结大全" class="headerlink" title="数组方法总结大全"></a>数组方法总结大全</h3><h4 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString()"></a>toString()</h4><p>把数组转换为字符串用逗号分割</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let  arr = [&#x27;zhansna&#x27;,&#x27;lisi&#x27;,&#x27;wangwu&#x27;]</span><br><span class="line">console.log(arr.toString()) // &#x27;zhansna,lisi,wangwu&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+                <h3 id="对象方法总结大全"><a href="#对象方法总结大全" class="headerlink" title="对象方法总结大全"></a>对象方法总结大全</h3><h4 id="Object-assign"><a href="#Object-assign" class="headerlink" title="Object.assign()"></a>Object.assign()</h4><p>将所以可以枚举属性的值从一个或多个对象复制到目标对象。有相同属性则后面的覆盖前面的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let  obj1 = &#123;a:1,b:2&#125;</span><br><span class="line">let  obj2 = &#123;a:3,c:2&#125;</span><br><span class="line">let  obj3 = Object.assign(obj1,obj2)</span><br><span class="line">console.log(obj3) // &#123;b:2,a:3,c:2&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h4><p>将数组转换为字符串默认值是逗号分割，根据入参分割</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> let  arr = [&#x27;zhansna&#x27;,&#x27;lisi&#x27;,&#x27;wangwu&#x27;]</span><br><span class="line">console.log(arr.join(&#x27;*&#x27;)) // &#x27;zhansna*lisi*wangwu&#x27;</span><br></pre></td></tr></table></figure>
+<h4 id="Object-keys"><a href="#Object-keys" class="headerlink" title="Object.keys()"></a>Object.keys()</h4><p>将一个对象中所有的 key 值返回成一个数组（可枚举）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let obj1=&#123;b:2,a:3,c:2&#125;</span><br><span class="line">let arr1 =Object.keys(obj1)</span><br><span class="line">console.log(arr1) // [&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;]</span><br></pre></td></tr></table></figure>
 
-<h4 id="pop"><a href="#pop" class="headerlink" title="pop()"></a>pop()</h4><p>删除数组最后一个元素，改变原数组，返回被删除数组</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var fruits = [&quot;Banana&quot;, &quot;Orange&quot;, &quot;Apple&quot;, &quot;Mango&quot;];</span><br><span class="line">let x = fruits.pop();</span><br><span class="line">console.log(fruits) // [&#x27;Banana&#x27;, &#x27;Orange&#x27;, &#x27;Apple&#x27;]</span><br><span class="line">console.log(x) // &quot;Mango&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="Object-values"><a href="#Object-values" class="headerlink" title="Object.values()"></a>Object.values()</h4><p>将一个对象中所有的 value 值返回成一个数组（可枚举）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let obj1=&#123;b:2,a:3,c:2&#125;</span><br><span class="line">let arr1 =Object.values(obj1)</span><br><span class="line">console.log(arr1) // [&#x27;3&#x27;,&#x27;2&#x27;,&#x27;2&#x27;]</span><br></pre></td></tr></table></figure>
 
-<h4 id="push"><a href="#push" class="headerlink" title="push()"></a>push()</h4><p>在数组末尾新添加一个元素，返回数组的长度</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var fruits = [&quot;Banana&quot;, &quot;Orange&quot;, &quot;Apple&quot;, &quot;Mango&quot;];</span><br><span class="line">var x =  fruits.push(&quot;Kiwi&quot;);</span><br><span class="line">console.log(fruits) // [&quot;Banana&quot;, &quot;Orange&quot;, &quot;Apple&quot;, &quot;Mango&quot;,&quot;Kiwi&quot;]</span><br><span class="line">console.log(x) //  x 的值是 5</span><br></pre></td></tr></table></figure>
+<h4 id="Object-hasOwn-判断对象中是否有该属性"><a href="#Object-hasOwn-判断对象中是否有该属性" class="headerlink" title="Object.hasOwn() 判断对象中是否有该属性"></a>Object.hasOwn() 判断对象中是否有该属性</h4><p>使用 Object.hasOwn()可以判断目标对象中是否有对应的属性返回 true 或者 false</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  let obj = &#123;</span><br><span class="line">    name =&#x27;zhansan&#x27;</span><br><span class="line">  &#125;</span><br><span class="line">console.log(Objeact.hasOwn(obj,&#x27;nmae&#x27;)) // true</span><br><span class="line">console.log(Objeact.hasOwn(obj,&#x27;age&#x27;)) // false</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h3 id="数组排序"><a href="#数组排序" class="headerlink" title="数组排序"></a>数组排序</h3><h4 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h4><p>数组排序</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var points = [40, 100, 1, 5, 25, 10];</span><br><span class="line">points.sort(function(a, b)&#123;return a - b&#125;);</span><br><span class="line">    console.log(points) // [1, 5, 10, 25, 40, 100]</span><br><span class="line">var points = [40, 100, 1, 5, 25, 10];</span><br><span class="line">points.sort(function(a, b)&#123;return b - a&#125;);</span><br><span class="line">    console.log(points) // [100, 40, 25, 10, 5, 1]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="reverse"><a href="#reverse" class="headerlink" title="reverse()"></a>reverse()</h4><p>数组反转</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var fruits = [&quot;Banana&quot;, &quot;Orange&quot;, &quot;Apple&quot;, &quot;Mango&quot;];</span><br><span class="line">fruits.reverse();         // 反转元素顺序</span><br><span class="line">    console.log(fruits) // [&#x27;Mango&#x27;, &#x27;Apple&#x27;, &#x27;Orange&#x27;, &#x27;Banana&#x27;]</span><br></pre></td></tr></table></figure>
-
-<h4 id="Math-max"><a href="#Math-max" class="headerlink" title="Math.max()"></a>Math.max()</h4><p>查找最大值</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let arr =[1,2,3,4]</span><br><span class="line">Math.max.apply(null,arr) // 4</span><br></pre></td></tr></table></figure>
-
-<h4 id="Math-min"><a href="#Math-min" class="headerlink" title="Math.min()"></a>Math.min()</h4><p>查找最小值</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let arr =[1,2,3,4]</span><br><span class="line">Math.min.apply(null,arr) // 1</span><br></pre></td></tr></table></figure>
-
-<h3 id="数组遍历方法"><a href="#数组遍历方法" class="headerlink" title="数组遍历方法"></a>数组遍历方法</h3><h4 id="forEach"><a href="#forEach" class="headerlink" title="forEach()"></a>forEach()</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let arr = [1,2,3]</span><br><span class="line">arr.forEach((value,index,arr) =&gt;&#123;</span><br><span class="line">    console.log(value,index,arr)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h4 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h4><p>遍历数组根据 return 生成新的数组</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let arr = [1,2,3]</span><br><span class="line">arr.map((value,index,arr) =&gt;&#123;</span><br><span class="line">    return value*2</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="filter"><a href="#filter" class="headerlink" title="filter()"></a>filter()</h4><p>遍历数组，return 为 true 的情况下返回当前项组成新的数组</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let arr = [1,2,3]</span><br><span class="line">arr.map((value,index,arr) =&gt;&#123;</span><br><span class="line">    // 当为true的情况下回返回 value 组成新的数组</span><br><span class="line">    return value &gt; 2</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="reduce"><a href="#reduce" class="headerlink" title="reduce()"></a>reduce()</h4><p>数组迭代器,遍历数组 返回值作为入参,最后的返回值输出</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var numbers1 = [45, 4, 9, 16, 25];</span><br><span class="line">var sum = numbers1.reduce((total, value, index, array)=&gt;&#123;</span><br><span class="line">    // total 初次为arr[0] value为arr[1]</span><br><span class="line">    // 第二次进来为之前return的值 value为接下来的值</span><br><span class="line">    console.log(total, value, index, array)</span><br><span class="line">    // 45 4 1  [45, 4, 9, 16, 25]</span><br><span class="line">    // 49 9 2  [45, 4, 9, 16, 25]</span><br><span class="line">    // 58 16 3  [45, 4, 9, 16, 25]</span><br><span class="line">    // 74 25 4  [45, 4, 9, 16, 25]</span><br><span class="line">    return total + value</span><br><span class="line">&#125;);</span><br><span class="line">console.log(sum) // 99</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="every"><a href="#every" class="headerlink" title="every()"></a>every()</h4><p>数组检查所有数组值是否通过检测,不是所有项都为 true 的话为 false</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var numbers = [45, 4, 9, 16, 25];</span><br><span class="line"></span><br><span class="line">let a = numbers.every((item) =&gt; &#123;</span><br><span class="line">    return item&gt;18</span><br><span class="line">    &#125; )</span><br><span class="line">console.log(a) // false</span><br></pre></td></tr></table></figure>
-
-<h4 id="some"><a href="#some" class="headerlink" title="some()"></a>some()</h4><p>数组遍历，如果有一项满足为 true 则返回 true</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var numbers = [45, 4, 9, 16, 25];</span><br><span class="line"></span><br><span class="line">let a = numbers.some((item) =&gt; &#123;</span><br><span class="line">    return item&gt;18</span><br><span class="line">    &#125; )</span><br><span class="line">console.log(a) // true</span><br></pre></td></tr></table></figure>
-
-<h4 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf()"></a>indexOf()</h4><p>在数组中查找有返回下标没有返回-1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var fruits = [&quot;Apple&quot;, &quot;Orange&quot;, &quot;Apple&quot;, &quot;Mango&quot;];</span><br><span class="line">console.log(fruits.indexOf(&quot;ac&quot;)) // -1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="find"><a href="#find" class="headerlink" title="find()"></a>find()</h4><p>查找返回满足的第一个元素没有返回 undefined</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var numbers = [4, 9, 16, 25, 29];</span><br><span class="line">var first = numbers.find(item =&gt; item&gt;100);</span><br><span class="line">console.log(first) // undefined</span><br></pre></td></tr></table></figure>
-
+<h4 id="Object-is"><a href="#Object-is" class="headerlink" title="Object.is()"></a>Object.is()</h4>
                 
             </div>
             <hr/>
@@ -549,7 +515,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://843378894.github.io/2023/05/08/%E6%95%B0%E7%BB%84-%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">https://843378894.github.io/2023/05/08/%E6%95%B0%E7%BB%84-%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</a>
+                    <a href="https://843378894.github.io/2023/05/15/%E5%AF%B9%E8%B1%A1-%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">https://843378894.github.io/2023/05/15/%E5%AF%B9%E8%B1%A1-%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -587,8 +553,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%95%B0%E7%BB%84/">
-                                    <span class="chip bg-color">数组</span>
+                                <a href="/tags/%E5%AF%B9%E8%B1%A1/">
+                                    <span class="chip bg-color">对象</span>
                                 </a>
                             
                         </div>
@@ -758,9 +724,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2023/05/15/%E5%AF%B9%E8%B1%A1-%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">
                     <div class="card-image">
@@ -778,9 +745,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-05-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-05-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -793,6 +760,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -811,13 +779,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/04/28/ES%E8%A7%84%E8%8C%83-2022-2016%E5%B8%B8%E7%94%A8api/">
+                <a href="/2023/05/08/%E6%95%B0%E7%BB%84-%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="ES2022-ES2016常用api">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="数组-知识总结">
                         
-                        <span class="card-title">ES2022-ES2016常用api</span>
+                        <span class="card-title">数组-知识总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -828,14 +796,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-05-08
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/ES%E8%A7%84%E8%8C%83/" class="post-category">
-                                    ES规范
+                            <a href="/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="post-category">
+                                    知识总结
                                 </a>
                             
                             
@@ -845,8 +813,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">
-                        <span class="chip bg-color">知识总结</span>
+                    <a href="/tags/%E6%95%B0%E7%BB%84/">
+                        <span class="chip bg-color">数组</span>
                     </a>
                     
                 </div>
