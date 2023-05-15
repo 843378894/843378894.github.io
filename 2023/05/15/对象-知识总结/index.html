@@ -489,7 +489,13 @@
 <h4 id="Object-hasOwn-判断对象中是否有该属性"><a href="#Object-hasOwn-判断对象中是否有该属性" class="headerlink" title="Object.hasOwn() 判断对象中是否有该属性"></a>Object.hasOwn() 判断对象中是否有该属性</h4><p>使用 Object.hasOwn()可以判断目标对象中是否有对应的属性返回 true 或者 false</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  let obj = &#123;</span><br><span class="line">    name =&#x27;zhansan&#x27;</span><br><span class="line">  &#125;</span><br><span class="line">console.log(Objeact.hasOwn(obj,&#x27;nmae&#x27;)) // true</span><br><span class="line">console.log(Objeact.hasOwn(obj,&#x27;age&#x27;)) // false</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h4 id="Object-is"><a href="#Object-is" class="headerlink" title="Object.is()"></a>Object.is()</h4>
+<h4 id="Object-is"><a href="#Object-is" class="headerlink" title="Object.is()"></a>Object.is()</h4><p>判断俩个值是否相等<br>相同的值</p>
+<ol>
+<li>都是 undefined，true，false，null</li>
+<li>相同字符串</li>
+<li>相同对象，处于同一个引用</li>
+</ol>
+
                 
             </div>
             <hr/>
