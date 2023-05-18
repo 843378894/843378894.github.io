@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>算法-排序-重新排列.</title>
+      <link href="/2023/05/18/%E7%AE%97%E6%B3%95-%E6%8E%92%E5%BA%8F-%E9%87%8D%E6%96%B0%E6%8E%92%E5%88%97/"/>
+      <url>/2023/05/18/%E7%AE%97%E6%B3%95-%E6%8E%92%E5%BA%8F-%E9%87%8D%E6%96%B0%E6%8E%92%E5%88%97/</url>
+      
+        <content type="html"><![CDATA[<h3 id="算法-排序-重新排列"><a href="#算法-排序-重新排列" class="headerlink" title="算法-排序-重新排列"></a>算法-排序-重新排列</h3><h4 id="题"><a href="#题" class="headerlink" title="题"></a>题</h4><p>给定一个字符串 s，s 包括以空格分隔的若干个单词，请对 s 进行如下处理后输出</p><ol><li><p>单词内部调整:对每个单词字母重新按 字典序排序</p></li><li><p>单词间顺序调整:</p><pre><code>1. 统计每个单词出现的次数，并按次数 降序排列2. 次数相同，按 单词长度Q升序排列3. 次数和单词长度均相同，按字典升序排列请输出处理后的字符串，每个单词以一个空格分隔。</code></pre><p>输入描述<br>行字符串，每个字符取值范围: [a-ZA-Z0-9]以及空格,，字符串长度范围:[1，1000]<br>输出描述<br>输出处理后的字符串，每个单词以一个空格分隔.<br>用例</p><table><thead><tr><th>输入</th><th>My sister is in the house not in the yard</th></tr></thead><tbody><tr><td>输出</td><td>in in eht eht My is not adry ehosu eirsst</td></tr><tr><td>说明</td><td>无</td></tr></tbody></table></li></ol><h4 id="解"><a href="#解" class="headerlink" title="解"></a>解</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"> let str = &#x27;My sister is in the house not in the yard&#x27;</span><br><span class="line"> &lt;!-- 分割成数组 --&gt;</span><br><span class="line">let arr = str.split(&#x27; &#x27;)</span><br><span class="line">&lt;!-- 对每个单词字母进行排序 --&gt;</span><br><span class="line">arr = arr.map((item) =&gt;&#123;</span><br><span class="line">  return  [...item].sort().join(&#x27;&#x27;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">let arr2 = []</span><br><span class="line">let obj =&#123;&#125;</span><br><span class="line">&lt;!-- 设置成对象让他进行累加 --&gt;</span><br><span class="line">arr2 = arr.reduce((p,c)=&gt;&#123;</span><br><span class="line">    p[c] ? p[c]++ : p[c]=1;</span><br><span class="line">    return p;</span><br><span class="line">&#125;,&#123;&#125;)</span><br><span class="line"></span><br><span class="line">console.log(arr2)</span><br><span class="line">&lt;!-- 对已经排序一次的数组进行二次排序 --&gt;</span><br><span class="line">arr= arr.sort( (a,b) =&gt;&#123;</span><br><span class="line">    &lt;!-- 如果单词出现次数不一样 --&gt;</span><br><span class="line">    if(arr2[b] !==arr2[a])&#123;</span><br><span class="line">        &lt;!-- 就先按照出现次数排序 --&gt;</span><br><span class="line">     return   arr2[b] - arr2[a]</span><br><span class="line">       &lt;!-- 如果出现次数一样先按照长度排序 --&gt;</span><br><span class="line">    &#125;else  if(a.length !== b.length)&#123;</span><br><span class="line">        &lt;!-- 因为要是降序所以小的在前面 --&gt;</span><br><span class="line">           return a.length -b.length</span><br><span class="line">            &lt;!--  如果次数长度都一样那就对比字典排序--&gt;</span><br><span class="line">        &#125;else if(a &gt; b)&#123;</span><br><span class="line">                return 1</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                return -1</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">&#125; )</span><br><span class="line">  console.log(arr.join(&#x27; &#x27;))</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 排序 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>算法-链表-环形链表.</title>
+      <link href="/2023/05/18/%E7%AE%97%E6%B3%95-%E9%93%BE%E8%A1%A8-%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/"/>
+      <url>/2023/05/18/%E7%AE%97%E6%B3%95-%E9%93%BE%E8%A1%A8-%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</url>
+      
+        <content type="html"><![CDATA[<h3 id="算法-链表-环形链表"><a href="#算法-链表-环形链表" class="headerlink" title="算法-链表-环形链表"></a>算法-链表-环形链表</h3><h4 id="题"><a href="#题" class="headerlink" title="题"></a>题</h4><p>给你一个链表的头节点 head ，判断链表中是否有环。</p><p>如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。注意：pos 不作为参数进行传递  。仅仅是为了标识链表的实际情况。</p><p>如果链表中存在环  ，则返回 true 。 否则，返回 false 。<br>输入：head &#x3D; [3,2,0,-4], pos &#x3D; 1<br>输出：true<br>解释：链表中有一个环，其尾部连接到第二个节点。</p><h4 id="解"><a href="#解" class="headerlink" title="解"></a>解</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"> /**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * function ListNode(val) &#123;</span><br><span class="line"> *     this.val = val;</span><br><span class="line"> *     this.next = null;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @param &#123;ListNode&#125; head</span><br><span class="line"> * @return &#123;boolean&#125;</span><br><span class="line"> */</span><br><span class="line">var hasCycle = function(head) &#123;</span><br><span class="line"></span><br><span class="line">    let map = new Map()</span><br><span class="line">    while(head)&#123;</span><br><span class="line">        // 有存储对应节点就是有环返回</span><br><span class="line">        if(map.has(head)) return true;</span><br><span class="line">        // 储存节点</span><br><span class="line">        map.set(head,true)</span><br><span class="line">        // 迭代节点</span><br><span class="line">        head = head.next;</span><br><span class="line">    &#125;</span><br><span class="line">    return false</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 链表 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>算法-链表-合并俩个有序列表.</title>
       <link href="/2023/05/17/%E7%AE%97%E6%B3%95-%E9%93%BE%E8%A1%A8-%E5%90%88%E5%B9%B6%E4%BF%A9%E4%B8%AA%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8/"/>
       <url>/2023/05/17/%E7%AE%97%E6%B3%95-%E9%93%BE%E8%A1%A8-%E5%90%88%E5%B9%B6%E4%BF%A9%E4%B8%AA%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8/</url>
